@@ -5,14 +5,14 @@ import 'package:project_1/Pages/Homepage.dart';
 import 'package:project_1/Widgets/CustomButton.dart';
 import 'package:project_1/Widgets/TextField.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class CreateAccountPage extends StatefulWidget {
+  const CreateAccountPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<CreateAccountPage> createState() => _CreateAccountPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _CreateAccountPageState extends State<CreateAccountPage> {
   TextEditingController userName=TextEditingController();
   TextEditingController userPass=TextEditingController();
   String buttonName1="CreateAccount";

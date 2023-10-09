@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_1/Pages/CreateAccount.dart';
 //import 'package:project_1/Pages/AccountRecovery.dart';
 //import 'package:project_1/Pages/CreateAccount.dart';
 //import 'package:project_1/Pages/Homepage.dart';
@@ -6,6 +7,7 @@ import 'package:project_1/Widgets/CustomButton.dart';
 import 'package:project_1/Widgets/SquareTile.dart';
 import 'package:project_1/Widgets/TextField.dart';
 
+import 'AccountRecovery.dart';
 import 'Homepage.dart';
 
 class LoginPage extends StatefulWidget {
@@ -68,13 +70,25 @@ class _LoginPageState extends State<LoginPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
 
                   children: [
-                    Text("Dont have an account"),
+                    GestureDetector(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) =>
+                      CreateAccountPage(),));
+
+                },
+                    child:Text("Don't have an account"),
+              ),
                     const SizedBox(width: 10),
-                    Text("Forgot Password",
-                      style: TextStyle(
+                    GestureDetector(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) =>
+                            RecoverAccount(),));
+                      },
+                      child:Text("Forgot Password",
+                        style: TextStyle(
                         color: Colors.purple[600],
                       ),
-                    ),
+                    ),),
                   ],
                 ),
               ),
