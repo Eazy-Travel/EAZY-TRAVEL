@@ -7,24 +7,24 @@ import 'package:firebase_core/firebase_core.dart';
 
 
 //Firebase.initializeApp()
-/*void main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();  //here we initialize our Firebase App
-  runApp(const MyApp());
+  runApp( MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => SelectSeatProvider(),)
+      ],
+      child:MyApp()));
 
 
+}
+
+
+/*void main(){
+  runApp(
+     );
 }
 */
-
-void main(){
-  runApp(
-      MultiProvider(
-          providers: [
-            ChangeNotifierProvider(create: (context) => SelectSeatProvider(),)
-          ],
-      child:MyApp()));
-}
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 

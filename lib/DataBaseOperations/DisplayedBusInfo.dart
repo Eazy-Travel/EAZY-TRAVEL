@@ -23,7 +23,7 @@ class getName extends StatelessWidget {
   final String DocumentId;
   const getName({super.key, required this.DocumentId});
 
-
+ 
   @override
   Widget build(BuildContext context) {
     CollectionReference user2=FirebaseFirestore.instance.collection('Bus info');

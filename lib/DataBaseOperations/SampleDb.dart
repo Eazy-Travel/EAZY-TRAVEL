@@ -1,3 +1,4 @@
+/*
 import 'package:flutter/cupertino.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +9,9 @@ class SampleDb extends StatefulWidget {
   @override
   State<SampleDb> createState() => _SampleDbState();
 }
-
+Navigator.push(context,
+                            MaterialPageRoute(
+                              builder: (context) => SampleDb()));
 
 List<String> docIDs=[];
 
@@ -56,3 +59,4 @@ class _SampleDbState extends State<SampleDb> {
     );
   }
 }
+*/

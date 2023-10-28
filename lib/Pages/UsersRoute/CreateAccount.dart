@@ -1,9 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:project_1/Pages/UsersRoute/AccountRecovery.dart';
 import 'package:project_1/Pages/UsersRoute/Homepage.dart';
 import 'package:project_1/Widgets/CustomButton.dart';
 import 'package:project_1/Widgets/TextField.dart';
+import '../../DataBaseOperations/AuthServiceUsers.dart';
 import '../../Widgets/SquareTile.dart';
 
 
@@ -17,6 +19,8 @@ class CreateAccountPage extends StatefulWidget {
 class _CreateAccountPageState extends State<CreateAccountPage> {
   TextEditingController userName=TextEditingController();
   TextEditingController userPass=TextEditingController();
+  TextEditingController userMail=TextEditingController();
+  TextEditingController ConfirmPass=TextEditingController();
   String buttonName1="CreateAccount";
   String buttonName2="Log in";
   String buttonName="Forgot Password";
@@ -55,6 +59,11 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                   labeltext:' Enter your Name',
                   controller:userName),
               SizedBox(height: height20,),
+              TextFed(hintText: 'Enter Email',
+                  obscureText: false,
+                  labeltext:' Enter your Email',
+                  controller:userMail),
+              SizedBox(height: height20,),
               TextFed(hintText: "Enter your password",
                   obscureText: true,
                   labeltext:"Enter your password",
@@ -63,19 +72,28 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
               TextFed(hintText: "enter your password",
                   obscureText: true,
                   labeltext: "Renter your password",
-                  controller:userPass),
+                  controller:ConfirmPass),
               SizedBox(height: height20,),
               CustomButton(
                   text: "Sign Up",
                   txtColor: Colors.white,
                   size: width,
-                  btnColor: Colors.black, onTap: () {
-                     Navigator.push(context,
-                         MaterialPageRoute(
-                           builder: (context) => HomePage(
-                           //name:userName.text,
-                         ),));
-              },),
+                  btnColor: Colors.black, onTap: () async {
+                if (userName.text==""|| userPass.text==""|| userMail==""){
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("All fields are required !"),
+                    backgroundColor: Colors.red ));
+                }else if(ConfirmPass.text !=userPass.text){
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Password is incorrect !"),
+                      backgroundColor: Colors.red ));
+                }else{
+                 User? result= await AuthServiceUser().register(userMail.text,userPass.text);
+                if (result!=""){
+                  print("success");
+                  print(result?.email);
+                }
+                }
+
+                  },),
 
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 25.0),

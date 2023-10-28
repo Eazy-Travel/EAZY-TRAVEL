@@ -121,9 +121,7 @@ class _UpdateScheduleState extends State<UpdateSchedule> {
                       btnColor: Colors.tealAccent,
                       onTap: (){
 
-                        Navigator.push(context,
-                            MaterialPageRoute(
-                              builder: (context) => SampleDb(),));
+
 
                         addBusdetails(
                           _JourneyStartController.text.trim(),
