@@ -25,6 +25,14 @@ class CustomButton extends StatelessWidget {
           height:40,
           decoration: BoxDecoration(
             color: btnColor,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.shade500,
+                offset: Offset(4.0, 4.0),
+                blurRadius: 13,
+                spreadRadius: 1.0
+              )
+            ],
             borderRadius: BorderRadius.circular(15),
           ),
           child: Center(
@@ -32,7 +40,7 @@ class CustomButton extends StatelessWidget {
               text,
               style: TextStyle(
                 color:txtColor,
-                fontWeight:FontWeight.bold,
+                fontSize: 17
               ),
             ),
 

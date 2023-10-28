@@ -1,13 +1,9 @@
 import 'dart:async';
-
-
 import 'package:flutter/material.dart';
-import 'package:project_1/Pages/Homepage.dart';
-import 'package:project_1/Pages/LoginPage.dart';
+import 'package:project_1/Pages/UsersRoute/Homepage.dart';
 
-import '../Widgets/AppProgressIndicator.dart';
 
-//import 'main.dart';
+import 'WelcomePage.dart';
 
 class  Splash extends StatefulWidget {
   const Splash({Key?  key}): super(key: key);
@@ -26,7 +22,8 @@ class _SplashState extends State<Splash> {
   }
   _navigatetohome()async{
     await Future.delayed(Duration(seconds: 7),(){});
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LoginPage()));}
+    Navigator.pushReplacement(context,
+        MaterialPageRoute(builder: (context)=>WelcomePage()));}
   /*Future<void> _navigatetohome(BuildContext context) async {
     Navigator.of(context).push(/*waiting dialog */);
     await Future.delayed(const Duration(seconds: 2));

@@ -18,13 +18,14 @@ class  TextFed extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.symmetric(horizontal: 25.0),
+      padding: EdgeInsets.only(left:3, right: 3),
         child: TextField(
           controller:controller,
           obscureText: obscureText,
           decoration: InputDecoration(
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
+              borderRadius: BorderRadius.all(Radius.circular(30.0))
             ),
             focusedBorder: OutlineInputBorder(
               borderSide:     BorderSide(color: Colors.grey.shade50,
